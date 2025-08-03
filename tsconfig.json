@@ -1,31 +1,29 @@
+// tsconfig.json
+
 {
   "compilerOptions": {
-    "target": "ES2017",
+    // ... other options like "target", "lib", "jsx" etc. will be here
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    
+    // --- ADD THESE TWO LINES ---
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@interfaces/*": ["interfaces/*"],
-      "@constants/*": ["constants/*"]
+      "@/*": ["./*"]
     }
+    // -------------------------
+
   },
-  "include": [
-    "next-env.d.ts",
-    "pages/**/*",
-    "components/**/*",
-    "interfaces/**/*",
-    "constants/**/*"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
